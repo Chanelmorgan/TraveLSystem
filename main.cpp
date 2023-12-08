@@ -1,5 +1,7 @@
 #include <iostream>
 #include <fstream>
+#include <iomanip>
+#include <unistd.h>
 
 
 using namespace std;
@@ -53,14 +55,14 @@ public:
 class Cabs{
 public:
     int cabChoice, kilometers;
-    float cost;
+    float cabCost, lastCabCost;
 
     void cabDetails()
     {
         cout << "We collaborated with fastest, safest, and smartest cab service around the country" << endl;
         cout <<"---------------- ABC Cabs ---------------- \n" << endl;
-        cout <<"1. Rent a standard cab - £2.50 per 1km" << endl;
-        cout <<"2. Rent a luxury cab - £5.00 per 1km " << endl;
+        cout <<"1. Rent a standard cab - £2 per 1km" << endl;
+        cout <<"2. Rent a luxury cab - £4 per 1km " << endl;
 
         cout <<"\nTo calculate the cost for your journey: " << endl;
         cout <<" Enter which kind of cab you need: ";
@@ -70,14 +72,70 @@ public:
 
         int hireCab;
 
-        if(cabChoice == 1){
-            cabCost =
+        if(cabChoice == 1) {
+            cabCost = kilometers * 2;
+            cout << "\nYour total cost " << cabCost << " GBP for a standard cab" << endl;
+            cout << "Press 1 to hire this cab: or ";
+            cout << "Press 2 to select another cab: ";
+            cin >> hireCab;
+
+            system("CLS");
+
+            if (hireCab == 1) {
+                lastCabCost = cabCost;
+                cout << "\nYou have successfully hired a standard cab" << endl;
+                cout << "GoTo Menu";
+            } else if (hireCab == 2) {
+                cabDetails();
+            } else {
+                cout << "Invalid input! Redirecting to previous menu \nPlease wait!" << endl;
+                usleep(999);
+                system("CLS");
+                cabDetails();
+            }
+        }else if(cabChoice == 2){
+            cabCost = kilometers * 4;
+            cout << "\nYour total cost " << cabCost << " GBP for a luxury cab" << endl;
+            cout << "Press 1 to hire this cab: or ";
+            cout << "Press 2 to select another cab: ";
+            cin >> hireCab;
+
+            system("CLS");
+
+            if (hireCab == 1) {
+                lastCabCost = cabCost;
+                cout << "\nYou have successfully hired a luxury cab" << endl;
+                cout << "GoTo Menu";
+            } else if (hireCab == 2) {
+                cabDetails();
+            } else {
+                cout << "Invalid input! Redirecting to previous menu \nPlease wait!" << endl;
+                usleep(999);
+                system("CLS");
+                cabDetails();
+            }
+        } else {
+            cout << "Invalid input! Redirecting to Main menu \nPlease wait!" << endl;
+            usleep(999);
+            system("CLS");
+            menu();
         }
+
+        cout <<"\nPress 1 to Redirect to Main menu" << endl;
+        cin >> hireCab;
+        system("CLS");
+        if(hireCab == 1){
+            menu();
+        } else {
+            menu();
+        }
+
 
     }
 };
 
 class Booking{
+
 
 };
 
