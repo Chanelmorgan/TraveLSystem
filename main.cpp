@@ -118,16 +118,16 @@ public:
             cout << "Invalid input! Redirecting to Main menu \nPlease wait!" << endl;
             usleep(999);
             system("CLS");
-            menu();
+           // menu();
         }
 
         cout <<"\nPress 1 to Redirect to Main menu" << endl;
         cin >> hireCab;
         system("CLS");
         if(hireCab == 1){
-            menu();
+            //menu();
         } else {
-            menu();
+            //menu();
         }
 
 
@@ -135,6 +135,43 @@ public:
 };
 
 class Booking{
+public:
+    int choiceHotel, packChoice;
+    float hotelCost;
+
+
+    void hotels(){
+        string hotelNo[] = {"Avendra", "ChoiceYou", "ElephantBay"};
+        for(int i = 0; i < 3; i++){
+            cout << (i+1) << ".Hotel" << hotelNo[i] << endl;
+        }
+        cout << "\nCurrently we collaborated with the above hotels!" << endl;
+        cout << "Press any key back or\nEnter number of the hotel you want to book";
+        cin >> choiceHotel;
+
+        system("CLS");
+        if(choiceHotel == 1){
+            cout <<"---------- WELCOME TO HOTEL AVENDRA ---------- " << endl;
+            cout << "The garden, food and beverage. Enjoy all you can drink, Stay cool and get chilled in the summer sun." << endl;
+            cout << "Packages offered by Avendra: \n" << endl;
+
+            cout  <<"1. Standard pack" << endl;
+            cout <<"\tAll basic facilities you need just for £ 500";
+            cout  <<"2. Premium pack" << endl;
+            cout <<"\tEnjoy premium for £ 1000";
+            cout  <<"3. Luxury pack" << endl;
+            cout <<"\tLive a luxury at Avendra: £1500";
+
+            cout << "\nPress another key to back or\nEnter package number you want to book: " << endl;
+            cin >> packChoice;
+
+
+        } else if(choiceHotel == 2){
+
+        } else if(choiceHotel == 3){
+
+        }
+    }
 
 
 };
